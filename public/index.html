@@ -104,7 +104,7 @@
     })
 
       humans.forEach(function(player){
-      mapUrl = mapUrl + '&markers=color:green%7Clabel:P%7C' + player.location.lat + ',' + player.location.long;
+      mapUrl = mapUrl + '&markers=color:green%7Clabel:H%7C' + player.location.lat + ',' + player.location.long;
       var imgElement = document.getElementById("map");
       imgElement.setAttribute('material','src', mapUrl );
       console.log(mapUrl);
@@ -129,7 +129,7 @@ function successCallback(position) {
         success: function(player) {
           var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
             mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
-            mapUrl = mapUrl + '&zoom=18&size=512x512&maptype=roadmap
+            mapUrl = mapUrl + '&zoom=18&size=512x512&maptype=roadmap';
         },
         error: function() {
           console.log('Failed to create new player')
@@ -150,7 +150,10 @@ function successCallback(position) {
     <audio id="iwillkillyou" src="https://cdn.glitch.com/b4aaa609-f9dc-4ddc-b249-595ab6428aea%2FI_will_kill_you-Grandpa-13673816.mp3?1503199223139"></audio>
   </a-assets>
   <a-entity id="user" camera look-controls map-component sound="src:#iwillkillyou; volume: 1">
-    <a-entity id="map" geometry="primitive:plane" position="0 0 -1.1" rotation="-10 0 0" visible="false"  material="shader: flat; src: https://cdn.glitch.com/b4aaa609-f9dc-4ddc-b249-595ab6428aea%2FSCURRY.TECH.jpg?1503198919056"></a-entity>
+    <a-entity id="map" geometry="primitive:plane" position="0 0 -1.1" rotation="-10 0 0" visible="false"  material="shader: flat; src: https://cdn.glitch.com/b4aaa609-f9dc-4ddc-b249-595ab6428aea%2FSCURRY.TECH.jpg?1503198919056">
+      <a-entity id="map-behind" geometry="primitive:plane" position="0 -0.01 -0.004" scale="1.3 1.3 1.3" rotation="0 0 0" material="shader: flat; src: https://cdn.glitch.com/b4aaa609-f9dc-4ddc-b249-595ab6428aea%2Fgrunge-canvas-background_1048-2498.jpg?1503234680953"></a-entity>
+    </a-entity>
+
   </a-entity>
   <a-sky color="red" opacity=".51">
     <a-animation attribute="opacity"
