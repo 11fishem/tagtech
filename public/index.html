@@ -146,7 +146,7 @@
       }
 
       function disperseInfo(players, playerupdate) {
-          console.log('PLAYER UPDATE', playerupdate)
+
         var monster = players.filter(function(player) {
           return player.monster
         });
@@ -174,6 +174,7 @@
           var dist = distance(position.coords.lat, position.coords.long, player.location.lat, player.location.long, "K");
           document.getElementById('thesky').setAttribute('opacity', 1-dist);
           document.getElementById('map').setAttribute('sound', 'volume', 2 - dist);
+          document.getElementById('distance').setAttribute('text', 'value', dist);
         });
 
     }
@@ -213,6 +214,7 @@ function distance(lat1, lon1, lat2, lon2, unit) {
     </a-entity>
 
   </a-entity>
+  <a-entity position="1 1 1" id="distance" text="value: 0;"></a-entity>
   <a-sky id="thesky" color="red" opacity=".51">
     <a-animation attribute="opacity"
                dur="10000"
