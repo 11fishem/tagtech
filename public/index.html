@@ -75,7 +75,8 @@
         }
       });
   }
-    function doTheStuff(){
+  var mapUrl
+  function doTheStuff(){
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{enableHighAccuracy:true,timeout:5000,maximumAge:5000});
       }
     function errorCallback() {}
@@ -92,7 +93,7 @@
             data: JSON.stringify(playerupdate),
             contentType: 'application/json',
             success: function(player) {
-              var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
+                mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
                 mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
                 mapUrl = mapUrl + '&zoom=18&size=512x512&maptype=roadmap';
             },
