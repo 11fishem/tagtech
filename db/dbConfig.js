@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-mongoURI = 'mongodb://localhost:27017/local';
+mongoURI = 'mongodb://localhost/players';
 mongoose.connect(mongoURI);
 var db = mongoose.connection;
 
